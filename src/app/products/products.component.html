@@ -13,8 +13,12 @@
       <td>{{product.id}}</td>
       <td>{{product.type}}</td>
       <td>{{product.price}}</td>
-      <td><button class="btn btn-link"
-        (click)="deleteProduct(product.id)">Delete</button></td>
+      <td>
+        <button class = "btn btn-link"
+        [routerLink]="['/product', product.id]">Edit</button>
+        <button class="btn btn-link"
+        (click)="deleteProduct(product.id)">Delete</button>
+      </td>
     </tr>
   </tbody>
 </table>
@@ -41,5 +45,3 @@
   </div>
   <button class="btn btn-primary mt-2">Submit</button>
 </form>
-
-<pre>{{productForm | json}}</pre>

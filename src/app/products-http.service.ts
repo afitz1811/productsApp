@@ -16,6 +16,11 @@ export class ProductsHttpService {
     return this._http.get(`${this.apiUrl}`);
   }
 
+  getProduct(id: any) {
+    let product = this._http.get(`${this.apiUrl}/${id}`)
+    return product
+  }
+
   createProduct(formData: any) : Observable<any>{
     return this._http.post(this.apiUrl, formData)
     .pipe(catchError(this.handleError));
@@ -27,6 +32,12 @@ export class ProductsHttpService {
     .pipe(catchError(this.handleError))
   }
 
+  update(data: any): Observable<any> {
+    let API_URL = `${this.apiUrl}/${data.id}`;
+    return this._http.put(API_URL, data).pipe(
+      catchError(this.handleError)
+    )
+  }
   // Handle API errors
   handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
