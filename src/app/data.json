@@ -1,8 +1,14 @@
 {
   "products": [
-    {"id":"1",
-    "type": "car",
-    "price": "100000"
+    {
+      "type": "House",
+      "price": 120000,
+      "id": 1
+    },
+    {
+      "type": "Car",
+      "price": 15000,
+      "id": 2
     }
   ]
 }

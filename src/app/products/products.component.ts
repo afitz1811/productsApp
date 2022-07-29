@@ -9,6 +9,7 @@ import { ProductsHttpService } from '../products-http.service';
 export class ProductsComponent implements OnInit {
 
   productList: any = [];
+  productForm: any = {};
 
   constructor(private ProductsHttp: ProductsHttpService) { }
 
@@ -21,4 +22,12 @@ export class ProductsComponent implements OnInit {
     this.productList = response);
   }
 
+  createProd(formData: any) {
+    this.ProductsHttp.createProduct(formData).subscribe(product =>
+      this.productList.push(product));
+  }
+
+  deleteProduct(id : any) {
+    this.ProductsHttp.delete(id).subscribe(() => {this.listProducts()});
+  }
 }
